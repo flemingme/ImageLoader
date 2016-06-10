@@ -17,10 +17,12 @@ import java.util.List;
 public class NewAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<NewEntity> mList;
+    private ImageLoader mImageLoader;
 
     public NewAdapter(Context context, List<NewEntity> newEntities) {
         mInflater = LayoutInflater.from(context);
         mList = newEntities;
+        mImageLoader = new ImageLoader();
     }
 
     @Override
@@ -50,7 +52,9 @@ public class NewAdapter extends BaseAdapter {
         }
         holder.ivIcon.setImageResource(R.mipmap.ic_launcher);
 //        new ImageLoader().showImageByThread(holder.ivIcon,getItem(position).getIcon());
-        new ImageLoader().showImageByAsyncTask(holder.ivIcon,getItem(position).getIcon());
+        String url = getItem(position).getIcon();
+        holder.ivIcon.setTag(url);
+        mImageLoader.showImageByAsyncTask(holder.ivIcon,url);
         holder.tvTitle.setText(getItem(position).getTitle());
         holder.tvContent.setText(getItem(position).getContent());
         return convertView;
