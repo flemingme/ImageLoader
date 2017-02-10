@@ -20,10 +20,23 @@ import java.net.URL;
  * Created by Fleming on 2016/6/9.
  */
 public class ImageLoader {
+
     private ImageView mImageView;
     private String mUrl;
     private LruCache<String, Bitmap> mCache;
+    private static ImageLoader sLoader;
     private static final String TAG = "ImageLoader";
+
+    public static ImageLoader with() {
+        if (sLoader == null) {
+            synchronized (ImageLoader.class) {
+                if (sLoader == null) {
+                    sLoader = new ImageLoader();
+                }
+            }
+        }
+        return sLoader;
+    }
 
     public ImageLoader() {
         int maxMemory = (int) Runtime.getRuntime().maxMemory();
@@ -70,7 +83,6 @@ public class ImageLoader {
 
     /**
      * 利用多线程的方式来显示icon;
-     *
      * @param imageView
      * @param url
      */
