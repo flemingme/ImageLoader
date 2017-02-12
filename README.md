@@ -1,6 +1,6 @@
 # LearnAsyncTask
 
-前言：AsyncTask的本身其实是对Handle机制的封装，目的是让异步操作的实现变得简单，更多的关注业务实现。
+前言：AsyncTask的本身其实是对Handler机制的封装，目的是让异步操作的实现变得简单，更多的关注业务实现。
 
 使用AsyncTask异步任务类的基本步骤：
 
