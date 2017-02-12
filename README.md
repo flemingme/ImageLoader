@@ -1,4 +1,8 @@
-# LearnAsyncTask
+```
+[![](https://jitpack.io/v/flemingme/ImageLoader.svg)](https://jitpack.io/#flemingme/ImageLoader)
+```
+
+# ImageLoader
 
 前言：AsyncTask的本身其实是对Handler机制的封装，目的是让异步操作的实现变得简单，更多的关注业务实现。
 
@@ -95,7 +99,46 @@ private class ImgLoaderAsyncTask extends AsyncTask<String, Void, Bitmap> {
 }
 ```
 
-相关：关于cache的部分，请点击***进行查看。
+如何在项目中使用imageloader库呢？
+
+```
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+
+dependencies {
+        compile 'com.github.flemingme:ImageLoader:1.0.0'
+}
+```
+
+### 用法注意：
+
+```java
+/**
+ * 利用异步工具类AsyncTask来展示icon;
+ * @param imageView 需要带tag
+ * @param url
+ */
+public void showImageByAsyncTask(ImageView imageView, String url) {
+    Bitmap bitmap = getBitmapFromCache(url);//先从缓存中获取
+    //如果缓存中存在就直接设置给imageView，否则就去下载
+    if (bitmap != null) {
+        //缓存大小要设置的合理一些，否则有的图片无法进入缓存，则需要通过网络获取
+        imageView.setImageBitmap(bitmap);
+        Log.d(TAG, "showImageByAsyncTask: from cache");
+    } else {
+        new ImgLoaderAsyncTask(imageView, url).execute(url);
+        Log.d(TAG, "showImageByAsyncTask: from net");
+    }
+}
+```
+
+可以直接通过ImageLoader.with()来进行调用。
+
+相关：关于cache的部分，请点击如何利用LruCache进行数据缓存进行查看。
 
 <img src="gif/device-2017-02-12-112626.gif" width="40%"></img>
 
