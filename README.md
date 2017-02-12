@@ -92,6 +92,6 @@ private class ImgLoaderAsyncTask extends AsyncTask<String, Void, Bitmap> {
 
 相关：关于cache的部分，请点击***进行查看。
 
-<img src="gif/device-2017-02-12-112626.gif" style="zoom:30%"></img>
+<img src="gif/device-2017-02-12-112626.gif" width="480px" height="640px"></img>
 
 另外附上AsyncTask异步任务之源码解析：http://blog.csdn.net/maplejaw_/article/details/51441312
