@@ -41,6 +41,8 @@
 第一种类型：
 
 ```java
+private static final String URL = "http://news-at.zhihu.com/api/4/news/latest";
+
 private class StoryAsyncTask extends AsyncTask<String, Viod, List<Story.StoriesBean>> {
 
     @Override
@@ -54,6 +56,9 @@ private class StoryAsyncTask extends AsyncTask<String, Viod, List<Story.StoriesB
         mRefreshLayout.setRefreshing(false);
     }
 }
+
+//执行
+new StoryAsyncTask().execute(URL);
 ```
 
 第二种类型：
