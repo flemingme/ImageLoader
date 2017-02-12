@@ -97,7 +97,9 @@ private class ImgLoaderAsyncTask extends AsyncTask<String, Void, Bitmap> {
 }
 ```
 
-如何在项目中使用imageloader库呢？
+如何在项目中使用ImageLoader库呢？
+
+#### 导入方法：
 
 ```
 allprojects {
@@ -112,7 +114,7 @@ dependencies {
 }
 ```
 
-### 用法注意：
+#### 用法注意：
 
 ```java
 /**
@@ -134,7 +136,7 @@ public void showImageByAsyncTask(ImageView imageView, String url) {
 }
 ```
 
-可以直接通过ImageLoader.with()来进行调用。
+可以直接通过`ImageLoader.with()`来进行调用。
 
 相关：关于cache的部分，请点击如何利用LruCache进行数据缓存进行查看。
 
