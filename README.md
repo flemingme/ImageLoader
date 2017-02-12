@@ -1,6 +1,4 @@
-```
 [![](https://jitpack.io/v/flemingme/ImageLoader.svg)](https://jitpack.io/#flemingme/ImageLoader)
-```
 
 # ImageLoader
 
