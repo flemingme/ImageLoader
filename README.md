@@ -10,15 +10,15 @@
 
 3.重写以下方法：
 
-> ```java
-> protected void onPreExecute() //可选
->
-> protected abstract Result doInBackground(Params... params); //必须重写
->
-> protected void onPostExecute(Result result) //可选，但一般都会重写
->
-> protected void onProgressUpdate(Progress... values) //可选,如果不需要进度可以写Void（大写的V）
-> ```
+```java
+protected void onPreExecute() //可选
+
+protected abstract Result doInBackground(Params... params); //必须重写
+
+protected void onPostExecute(Result result) //可选，但一般都会重写
+
+protected void onProgressUpdate(Progress... values) //可选,如果不需要进度可以写Void（大写的V）
+```
 
 注意：
 
