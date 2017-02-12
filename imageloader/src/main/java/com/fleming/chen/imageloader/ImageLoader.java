@@ -103,7 +103,7 @@ public class ImageLoader {
 
     /**
      * 利用异步工具类AsyncTask来展示icon;
-     * @param imageView
+     * @param imageView 需要带tag
      * @param url
      */
     public void showImageByAsyncTask(ImageView imageView, String url) {
