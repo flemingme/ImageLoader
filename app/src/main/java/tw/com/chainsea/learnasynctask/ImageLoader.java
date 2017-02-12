@@ -146,7 +146,7 @@ public class ImageLoader {
         return bitmap;
     }
 
-    class ImgLoaderAsyncTask extends AsyncTask<String, Void, Bitmap> {
+    private class ImgLoaderAsyncTask extends AsyncTask<String, Void, Bitmap> {
         private ImageView mImageView;
         private String mUrl;
 
