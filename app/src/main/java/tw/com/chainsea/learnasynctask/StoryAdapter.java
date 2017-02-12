@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.fleming.chen.imageloader.ImageLoader;
+
 import java.util.LinkedList;
 import java.util.List;
 

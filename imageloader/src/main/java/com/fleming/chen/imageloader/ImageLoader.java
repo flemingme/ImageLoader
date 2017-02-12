@@ -1,4 +1,4 @@
-package tw.com.chainsea.learnasynctask;
+package com.fleming.chen.imageloader;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -160,6 +160,7 @@ public class ImageLoader {
             String url = params[0];
             //从网络上获取到的图片存到缓存中
             Bitmap bitmap = getBitmapFromUrl(url);
+            bitmap = BitmapUtils.getRoundedCornerBitmap(bitmap, 15f);
             if (bitmap != null) {
                 addBitmapToCache(url, bitmap);
             }
