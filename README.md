@@ -138,7 +138,7 @@ public void showImageByAsyncTask(ImageView imageView, String url) {
 
 可以直接通过`ImageLoader.with()`来进行调用。
 
-相关：关于cache的部分，请点击如何利用LruCache进行数据缓存进行查看。
+相关：关于cache的部分，请点击[如何利用LruCache进行数据缓存](https://flemingme.github.io/2016/12/17/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8LruCache%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98/)进行查看。
 
 <img src="gif/device-2017-02-12-112626.gif" width="40%"></img>
 

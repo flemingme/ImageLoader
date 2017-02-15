@@ -5,8 +5,9 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.util.LruCache;
+import android.text.TextUtils;
 import android.util.Log;
-import android.util.LruCache;
 import android.widget.ImageView;
 
 import java.io.BufferedInputStream;
@@ -21,11 +22,11 @@ import java.net.URL;
  */
 public class ImageLoader {
 
+    private static final String TAG = "ImageLoader";
+    private static ImageLoader sLoader;
+    private LruCache<String, Bitmap> mCache;
     private ImageView mImageView;
     private String mUrl;
-    private LruCache<String, Bitmap> mCache;
-    private static ImageLoader sLoader;
-    private static final String TAG = "ImageLoader";
 
     public static ImageLoader with() {
         if (sLoader == null) {
@@ -38,9 +39,12 @@ public class ImageLoader {
         return sLoader;
     }
 
+    /**
+     * 利用Runtime运行时来获取最大的内存大小
+     */
     public ImageLoader() {
         int maxMemory = (int) Runtime.getRuntime().maxMemory();
-        int cacheSize = maxMemory / 2;  //根据要缓存的图片大小进行调整
+        int cacheSize = maxMemory / 8;  //官方推荐1/8，可根据要缓存的图片大小进行调整
         mCache = new LruCache<String, Bitmap>(cacheSize) {
             @Override
             protected int sizeOf(String key, Bitmap value) {
@@ -67,7 +71,17 @@ public class ImageLoader {
      * @return
      */
     public Bitmap getBitmapFromCache(String url) {
-        return mCache.get(url);
+        return !TextUtils.isEmpty(url) ? mCache.get(url) : null;
+    }
+
+    /**
+     * 从缓存中删除图片
+     * @param url
+     */
+    public void removeBitmapFromCache(String url) {
+        if (!TextUtils.isEmpty(url)) {
+            mCache.remove(url);
+        }
     }
 
     /**
