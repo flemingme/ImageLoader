@@ -143,6 +143,6 @@ public void showImage(final ImageView imageView, final String url,
 
 相关：关于cache的部分，请点击[如何利用LruCache进行数据缓存](https://flemingme.github.io/2016/12/17/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8LruCache%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98/)进行查看。
 
-<img src="gif/ezgif.com-video-to-gif.gif" width="40%"></img>
+<img src="art/ezgif.com-video-to-gif.gif" width="40%"></img>
 
 另外附上AsyncTask异步任务之源码解析：http://blog.csdn.net/maplejaw_/article/details/51441312
