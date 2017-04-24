@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "tw.com.chainsea.learnasynctask"
+        applicationId "tw.com.chainsea.androidasynctask"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1

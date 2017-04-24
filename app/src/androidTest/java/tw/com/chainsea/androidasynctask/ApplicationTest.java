@@ -1,4 +1,4 @@
-package tw.com.chainsea.learnasynctask;
+package tw.com.chainsea.androidasynctask;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

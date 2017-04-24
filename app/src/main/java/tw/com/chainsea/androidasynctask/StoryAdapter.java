@@ -1,4 +1,4 @@
-package tw.com.chainsea.learnasynctask;
+package tw.com.chainsea.androidasynctask;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,7 +44,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return mStoryList.size();
+        return mStoryList != null ? mStoryList.size() : 0;
     }
 
     public void addListData(List<Story.StoriesBean> storys) {
