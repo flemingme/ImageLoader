@@ -13,7 +13,12 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * BitmapUtils
@@ -119,7 +124,7 @@ public class BitmapUtils {
         return BitmapFactory.decodeResource(res, resId, options);
     }
 
-    private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         int outWidth = options.outWidth;
         int outHeight = options.outHeight;
         int inSampleSize = 1;
@@ -135,6 +140,33 @@ public class BitmapUtils {
         }
 
         return inSampleSize;
+    }
+
+    /**
+     * 通过HttpURLConnection获取icon的bitmap;
+     * @param urlString
+     * @return
+     */
+    public static Bitmap getBitmapFromUrl(String urlString) {
+        Bitmap bitmap = null;
+        InputStream is = null;
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            is = new BufferedInputStream(urlConnection.getInputStream());
+            bitmap = BitmapFactory.decodeStream(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return bitmap;
     }
 
 }

@@ -32,8 +32,10 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        ImageLoader.with().showImageByAsyncTask(holder.ivIcon, getItem(position).getImages().get(0));
-        holder.ivIcon.setTag(getItem(position).getImages().get(0));
+        String url = getItem(position).getImages().get(0);
+        //第三个参数，true加载一个圆角图，false则为方图;最后一个参数是圆角值
+        ImageLoader.with().showImage(holder.ivIcon, url, true, 16f);
+        holder.ivIcon.setTag(url);//为icon设置tag
         holder.tvTitle.setText(getItem(position).getTitle());
     }
 
